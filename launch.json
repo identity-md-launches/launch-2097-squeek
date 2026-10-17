@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "SqueekToken",
+    "name": "Squeek",
+    "symbol": "SQUEEK",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8000,
+    "initialMarketCapWei": "1000000000000000000000",
+    "remainderTo": "0xd6302976e590b9b947da8774b7f1246164e0ce98"
+  },
+  "notes": "SqueekToken (src/SqueekToken.sol) is a plain, fixed-supply ERC-20 built on OpenZeppelin ERC20 v5: name Squeek, symbol SQUEEK, 18 decimals. Its constructor takes no arguments and mints the whole supply of 1,000,000,000 SQUEEK (1000000000000000000000000000 minor units) once to msg.sender, which at launch is the ProjectFactory; totalSupply is constant afterwards, since there is no mint, burn, burnFrom, issue or rebase path for anyone. Transfers and transferFrom move exactly the requested amount: no fee, tax, reflection, burn-on-transfer, cooldown, max-wallet or max-transaction rule, so the factory-to-distributor, distributor-to-claimant, factory-to-PoolManager and swap flows arrive whole without an exemption list, and the token needs none of the $factory, $poolManager or $launchNumber placeholders. There is no owner, admin, minter, pauser, blacklist, freeze, seize or upgrade function, no delegatecall, callcode or selfdestruct, no external calls and no linked libraries. The launch deploys no application contracts. The pool pairs with IMD at 0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7 with fee 12500 (1.25%) and tick spacing 60; initialPrice is provenance only, since the deployer derives the opening price from economics.initialMarketCapWei and totalSupply. Economics are the requester's as paid for: 8000 bps of the supply seeds the pool at a 1,000 IMD opening market cap and the remainder of the requester's share goes to 0xd6302976e590b9b947da8774b7f1246164e0ce98."
+}
